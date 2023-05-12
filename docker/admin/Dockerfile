@@ -1,4 +1,4 @@
-FROM --platform=amd64 ubuntu:rolling
+FROM ubuntu:rolling
 
 COPY docker/admin/install.bash /tmp/
 RUN /tmp/install.bash
