@@ -629,16 +629,16 @@ async function executeDepGraph({
   if (yes) {
     console.log("Skipping confirmation since --yes was passed.");
   } else {
-    console.log("Do you want to perform these actions?");
-    console.log("  Depgraph will perform the actions described above.");
-    console.log("  Only 'yes' will be accepted to approve.");
-    console.log();
-    const resp = await getUserInput("  Enter a value: ");
-    if (resp !== "yes") {
-      console.log();
-      console.log("Apply cancelled.");
-      process.exit(1);
-    }
+    // console.log("Do you want to perform these actions?");
+    // console.log("  Depgraph will perform the actions described above.");
+    // console.log("  Only 'yes' will be accepted to approve.");
+    // console.log();
+    // const resp = await getUserInput("  Enter a value: ");
+    // if (resp !== "yes") {
+    //   console.log();
+    //   console.log("Apply cancelled.");
+    //   process.exit(1);
+    // }
   }
   for (let idx = 0; idx < plan.length; idx++) {
     const { artifact, action } = plan[idx];
