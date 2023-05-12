@@ -58,7 +58,6 @@ ssh
 strace
 sudo
 tmux
-terraform
 unzip
 uuid-runtime
 vim
