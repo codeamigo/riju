@@ -33,9 +33,6 @@ module.exports = (_, argv) => ({
       },
     ],
   },
-  node: {
-    net: "mock",
-  },
   output: {
     path: path.resolve(__dirname, "frontend/out"),
     publicPath: "/js/",
