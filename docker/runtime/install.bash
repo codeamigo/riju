@@ -70,7 +70,7 @@ vim
 apt-get update
 apt-get install -y $(sed 's/#.*//' <<< "${packages}")
 
-pip3 install poetry
+pip3 install poetry --break-system-packages
 
 ver="$(latest_release watchexec/watchexec | sed 's/^cli-v//')"
 wget "https://github.com/watchexec/watchexec/releases/download/cli-v${ver}/watchexec-${ver}-x86_64-unknown-linux-gnu.deb"
