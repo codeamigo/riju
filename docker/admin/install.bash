@@ -71,7 +71,7 @@ apt-get install -y $(sed 's/#.*//' <<< "${packages}")
 
 pip3 install ec2instanceconnectcli poetry --break-system-packages
 
-sudo apt-get install npm
+apt-get install npm
 npm install -g prettier
 
 wget -nv https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -O awscli.zip
