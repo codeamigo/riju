@@ -43,6 +43,9 @@ install:
     - black
   npm:
     - pyright
+  pip:
+    - torch
+    - transformers
 
 repl: |
   python3 -u
