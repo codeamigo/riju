@@ -1,5 +1,7 @@
 FROM riju:ubuntu AS build
 
+RUN apt-get update
+
 ENV NODE_VERSION=14.19.0
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
