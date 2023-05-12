@@ -15,7 +15,7 @@ install:
 
     export GO111MODULE=on
     export GOPATH="$PWD/go"
-    go get golang.org/x/tools/gopls@latest
+    go install golang.org/x/tools/gopls@latest
     cp go/bin/gopls "${pkg}/usr/local/bin/"
 
 main: "main.go"
