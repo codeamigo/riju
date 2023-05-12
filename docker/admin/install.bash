@@ -58,6 +58,7 @@ ssh
 strace
 sudo
 tmux
+torch
 unzip
 uuid-runtime
 vim
