@@ -70,7 +70,7 @@ apt-get update
 apt-get install -y $(sed 's/#.*//' <<< "${packages}")
 
 pip3 install ec2instanceconnectcli poetry --break-system-packages
-pip3 install torch==2.0.1+cpu torchvision==0.6.1+cpu -f https://download.pytorch.org/whl/torch_stable.html --break-system-packages
+pip3 install torch==2.0.1+cpu torchvision==0.15.0+cpu -f https://download.pytorch.org/whl/torch_stable.html --break-system-packages
 
 wget -nv https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -O awscli.zip
 unzip -q awscli.zip
