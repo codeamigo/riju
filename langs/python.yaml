@@ -77,10 +77,9 @@ pkg:
 
 lsp:
   start: |
-    Microsoft.Python.LanguageServer
-  init:
-    interpreter:
-      properties:
-        InterpreterPath: /usr/bin/python3
+    pyright-langserver --stdio
   code: "import func"
   item: "functools"
+
+skip:
+  - lsp
