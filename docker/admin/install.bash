@@ -22,7 +22,7 @@ ubuntu_name="$(lsb_release -cs)"
 node_repo="node_16.x"
 
 tee -a /etc/apt/sources.list.d/custom.list >/dev/null <<EOF
-deb [arch=amd64] https://apt.releases.hashicorp.com ${ubuntu_name} main
+deb [arch=amd64] http://archive.ubuntu.com/ubuntu ${ubuntu_name} main
 deb [arch=amd64] https://deb.nodesource.com/${node_repo} ${ubuntu_name} main
 deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main
 deb [arch=amd64] https://download.docker.com/linux/ubuntu ${ubuntu_name} stable
