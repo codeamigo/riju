@@ -72,7 +72,7 @@ apt-get install -y $(sed 's/#.*//' <<< "${packages}")
 
 pip3 install poetry --break-system-packages
 
-wget "https://github.com/watchexec/watchexec/releases/download/cli-v1.22.1/watchexec-1.22.1-x86_64-unknown-linux-gnu.deb"
+wget "https://github.com/watchexec/watchexec/releases/download/v1.22.1/watchexec-1.22.1-x86_64-unknown-linux-gnu.deb"
 apt-get install -y ./watchexec-*.deb
 
 rm -rf /var/lib/apt/lists/*
