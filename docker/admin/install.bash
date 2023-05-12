@@ -19,7 +19,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 ubuntu_ver="$(lsb_release -rs)"
 ubuntu_name="$(lsb_release -cs)"
 
-node_repo="node_17.x"
+node_repo="node_18.x"
 
 tee -a /etc/apt/sources.list.d/custom.list >/dev/null <<EOF
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu ${ubuntu_name} main
