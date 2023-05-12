@@ -41,6 +41,8 @@ install:
     - python3
     - python3-pip
     - black
+    - torch
+    - transformers
   manual: |
     install -d "${pkg}/opt/mspyls"
     install -d "${pkg}/usr/local/bin"
