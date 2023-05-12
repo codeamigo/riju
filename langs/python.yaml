@@ -42,7 +42,6 @@ install:
     - python3-pip
     - black
     - torch
-    - transformers
   npm:
     - pyright
 
