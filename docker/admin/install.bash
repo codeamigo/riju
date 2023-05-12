@@ -58,7 +58,6 @@ ssh
 strace
 sudo
 tmux
-torch
 unzip
 uuid-runtime
 vim
@@ -71,6 +70,7 @@ apt-get update
 apt-get install -y $(sed 's/#.*//' <<< "${packages}")
 
 pip3 install ec2instanceconnectcli poetry --break-system-packages
+pip3 install torch==1.5.1+cpu torchvision==0.6.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 wget -nv https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -O awscli.zip
 unzip -q awscli.zip
