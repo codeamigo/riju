@@ -70,7 +70,7 @@ async function main() {
   try {
     if (debug) {
       await runCommand(
-        `docker run -it --rm -e LANG=${lang} -w /tmp/riju-work --network host base:runtime`
+        `docker run -it  --security-opt seccomp=unconfined --rm -e LANG=${lang} -w /tmp/riju-work --network host base:runtime`
       );
     } else {
       await runCommand(
