@@ -350,6 +350,7 @@ func (sv *supervisor) reload() error {
 		oldName = blueName
 	}
 	sv.status("starting container " + name)
+	sv.status("creating container with --security-opt seccomp=unconfined")
 	dockerRun := exec.Command(
 		"docker", "run", "-d",
 		"-v", "/var/cache/riju:/var/cache/riju",
