@@ -358,6 +358,7 @@ func (sv *supervisor) reload() error {
 		"-e", "ANALYTICS_TAG",
 		"-e", "RIJU_DEPLOY_CONFIG",
 		"-e", "SENTRY_DSN",
+		"--security-opt", "seccomp=unconfined",
 		"--label", fmt.Sprintf("riju.deploy-config-hash=%s", deployCfgHash),
 		"--name", name,
 		"--restart", "unless-stopped",
