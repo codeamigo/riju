@@ -33,7 +33,7 @@ variable "supervisor_access_token" {
   default = "${env("SUPERVISOR_ACCESS_TOKEN")}"
 }
 
-data "amazon-ami" "ubuntu" {
+resource "amazon-ami" "ubuntu" {
   filters = {
     name                = "ubuntu/images/hvm-ssd/ubuntu-*-22.04-amd64-server-*"
     root-device-type    = "ebs"
@@ -50,7 +50,7 @@ locals {
 source "amazon-ebs" "ubuntu" {
   ami_name      = "riju-web-${local.timestamp}"
   instance_type = "t3.small"
-  source_ami    = "${data.amazon-ami.ubuntu.id}"
+  source_ami    = "${amazon-ami.ubuntu.id}"
   ssh_username  = "ubuntu"
 
   tag {
