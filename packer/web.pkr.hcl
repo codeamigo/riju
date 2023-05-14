@@ -33,24 +33,24 @@ variable "supervisor_access_token" {
   default = "${env("SUPERVISOR_ACCESS_TOKEN")}"
 }
 
-resource "amazon-ami" "ubuntu" {
+locals {
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+}
+
+data "amazon-ami" "ubuntu" {
   filters = {
     name                = "ubuntu/images/hvm-ssd/ubuntu-*-22.04-amd64-server-*"
     root-device-type    = "ebs"
     virtualization-type = "hvm"
   }
-  most_recent = true
   owners      = ["099720109477"]
-}
-
-locals {
-  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+  most_recent = true
 }
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "riju-web-${local.timestamp}"
   instance_type = "t3.small"
-  source_ami    = "${amazon-ami.ubuntu.id}"
+  source_ami    = "${data.amazon-ami.ubuntu.id}"
   ssh_username  = "ubuntu"
 
   tag {
