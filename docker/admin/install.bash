@@ -57,6 +57,7 @@ skopeo
 ssh
 strace
 sudo
+terraform
 tmux
 unzip
 uuid-runtime
