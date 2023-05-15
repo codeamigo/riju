@@ -11,7 +11,6 @@ apt-get update
 
 apt-get install -y curl gnupg lsb-release
 
-curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -49,7 +48,6 @@ make
 man
 moreutils
 nodejs
-packer
 psmisc
 python3-pip
 pwgen
@@ -57,7 +55,6 @@ skopeo
 ssh
 strace
 sudo
-terraform
 tmux
 unzip
 uuid-runtime
