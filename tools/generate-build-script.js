@@ -134,6 +134,13 @@ if [[ -d "\${pkg}/opt/${basename}/bin" ]]; then
         version="$(ls "\${pkg}/opt/${basename}/lib" | head -n1)"
         cat <<EOF > "\${pkg}/usr/local/bin/\${name}"
 #!/usr/bin/env bash
+echo ${pkg}
+echo ${basename}
+echo ${name}
+echo ${version}
+
+set -eu pipefail
+echo 'HELLOOO'
 exec env PYTHONPATH="/opt/${basename}/lib/\${version}/site-packages" "/opt/${basename}/bin/\${name}" "\\\$@"
 EOF
         chmod +x "\${pkg}/usr/local/bin/\${name}"
