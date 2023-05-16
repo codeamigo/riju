@@ -271,8 +271,7 @@ async function getDeployReadyArtifact(langs) {
   return {
     name: `deploy:ready`,
     dependencies: ["image:app"]
-      .concat(langs.map((lang) => `image:lang-${lang}`))
-      .concat(langs.map((lang) => `test:lang-${lang}`)),
+      .concat(langs.map((lang) => `image:lang-${lang}`)),
     publishTarget: true,
     publishToRegistry: async () => {
       await runCommand(`make deploy-config`);
