@@ -129,8 +129,6 @@ install -d "\${pkg}/usr/local/bin"
 pip3 install "${basename}" --target "\${pkg}/opt/${basename}"
 find "\${pkg}/opt/${basename}" -name __pycache__ -exec rm -rf '{}' ';' -prune
 
-export PYTHONPATH="\${pkg}/opt/${basename}:${PYTHONPATH}"
-
 if [[ -d "\${pkg}/opt/${basename}/man" ]]; then
     ls "\${pkg}/opt/${basename}/man" | while read dir; do
         install -d "\${pkg}/usr/local/man/\${dir}"
