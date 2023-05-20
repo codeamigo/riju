@@ -129,6 +129,19 @@ install -d "\${pkg}/usr/local/bin"
 pip3 install "${basename}" --target "\${pkg}/opt/${basename}"
 find "\${pkg}/opt/${basename}" -name __pycache__ -exec rm -rf '{}' ';' -prune
 
+export PYTHONPATH="\${pkg}/opt/${basename}"
+
+if [[ -d "\${pkg}/opt/${basename}/bin" ]]; then
+    ls "\${pkg}/opt/${basename}/bin" | while read name; do
+        version="python3.11"
+        cat <<EOF > "\${pkg}/usr/local/bin/\${name}"
+#!/usr/bin/env bash
+exec env PYTHONPATH="/opt/${basename}/" "/opt/${basename}/bin/\${name}" "\\\$@"
+EOF
+        chmod +x "\${pkg}/usr/local/bin/\${name}"
+    done
+fi
+
 if [[ -d "\${pkg}/opt/${basename}/man" ]]; then
     ls "\${pkg}/opt/${basename}/man" | while read dir; do
         install -d "\${pkg}/usr/local/man/\${dir}"
@@ -136,13 +149,7 @@ if [[ -d "\${pkg}/opt/${basename}/man" ]]; then
             ln -s "/opt/${basename}/man/\${dir}/\${name}" "\${pkg}/usr/local/man/\${dir}/\${name}"
         done
     done
-fi
-
-#!/usr/bin/env bash
-
-set -euxo pipefail
-
-export PYTHONPATH=\${pkg}/opt/${basename}`);
+fi`);
       }
     }
     if (gem && gem.length > 0) {
