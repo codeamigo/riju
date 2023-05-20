@@ -44,8 +44,7 @@ install:
   npm:
     - pyright
   pip:
-    - torch
-    - transformers
+    - openai
 
 repl: |
   python3 -u
