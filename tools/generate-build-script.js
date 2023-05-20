@@ -142,7 +142,7 @@ fi
 
 set -euxo pipefail
 
-export PYTHONPATH=\${pkg}/opt/${basename}:${PYTHONPATH}`);
+export PYTHONPATH=\${pkg}/opt/${basename}`);
       }
     }
     if (gem && gem.length > 0) {
