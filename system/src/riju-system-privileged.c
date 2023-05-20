@@ -226,8 +226,6 @@ void session(char *uuid, char *lang, char *imageHash)
         "USER=riju",
         "-e",
         "USERNAME=riju",
-        "-e",
-        "PYTHONPATH=/opt/openai",
         "--user",
         "root",
         "--hostname",

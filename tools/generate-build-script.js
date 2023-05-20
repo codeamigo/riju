@@ -136,7 +136,13 @@ if [[ -d "\${pkg}/opt/${basename}/man" ]]; then
             ln -s "/opt/${basename}/man/\${dir}/\${name}" "\${pkg}/usr/local/man/\${dir}/\${name}"
         done
     done
-fi`);
+fi
+
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+export PYTHONPATH=\${pkg}/opt/${basename}:${PYTHONPATH}`);
       }
     }
     if (gem && gem.length > 0) {
