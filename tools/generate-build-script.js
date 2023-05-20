@@ -126,26 +126,10 @@ fi`);
       for (const basename of pip) {
         parts.push(`\
 install -d "\${pkg}/usr/local/bin"
-pip3 install "${basename}" --prefix "\${pkg}/opt/${basename}"
+pip3 install "${basename}" --target "\${pkg}/opt/${basename}"
 find "\${pkg}/opt/${basename}" -name __pycache__ -exec rm -rf '{}' ';' -prune
 
-if [[ -d "\${pkg}/opt/${basename}/bin" ]]; then
-    ls "\${pkg}/opt/${basename}/bin" | while read name; do
-        version="$(ls "\${pkg}/opt/${basename}/lib" | head -n1)"
-        cat <<EOF > "\${pkg}/usr/local/bin/\${name}"
-#!/usr/bin/env bash
-echo ${pkg}
-echo ${basename}
-echo ${name}
-echo ${version}
-
-set -eu pipefail
-echo 'HELLOOO'
-exec env PYTHONPATH="/opt/${basename}/lib/\${version}/site-packages" "/opt/${basename}/bin/\${name}" "\\\$@"
-EOF
-        chmod +x "\${pkg}/usr/local/bin/\${name}"
-    done
-fi
+export PYTHONPATH="\${pkg}/opt/${basename}"
 
 if [[ -d "\${pkg}/opt/${basename}/man" ]]; then
     ls "\${pkg}/opt/${basename}/man" | while read dir; do
