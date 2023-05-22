@@ -129,9 +129,8 @@ install -d "\${pkg}/usr/local/bin"
 pip3 install "${basename}" --target "\${pkg}/opt/${basename}"
 find "\${pkg}/opt/${basename}" -name __pycache__ -exec rm -rf '{}' ';' -prune
 
-if [[ -d "\${pkg}/opt/${basename}/bin" ]]; then
-    ls "\${pkg}/opt/${basename}/bin" | while read name; do
-        version="python3.11"
+if [[ -d "\${pkg}/opt/${basename}" ]]; then
+    ls "\${pkg}/opt/${basename}" | while read name; do
         cat <<EOF > "\${pkg}/usr/local/bin/\${name}"
 #!/usr/bin/env bash
 exec env PYTHONPATH="/opt/${basename}/" "/opt/${basename}/bin/\${name}" "\\\$@"
