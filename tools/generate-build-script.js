@@ -129,8 +129,6 @@ install -d "\${pkg}/usr/local/bin"
 pip3 install "${basename}" --target "\${pkg}/opt/${basename}"
 find "\${pkg}/opt/${basename}" -name __pycache__ -exec rm -rf '{}' ';' -prune
 
-export PYTHONPATH="\${pkg}/opt/${basename}"
-
 if [[ -d "\${pkg}/opt/${basename}/bin" ]]; then
     ls "\${pkg}/opt/${basename}/bin" | while read name; do
         version="python3.11"
