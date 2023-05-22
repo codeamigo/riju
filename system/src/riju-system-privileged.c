@@ -226,10 +226,10 @@ void session(char *uuid, char *lang, char *imageHash)
         "USER=riju",
         "-e",
         "USERNAME=riju",
-        "-e",
         // TODO: FIX IMPORTS
         // THIS IS A HACK
-        "PYTHONPATH=/opt/openai"
+        "-e",
+        "PYTHONPATH=/opt/openai",
         "--user",
         "root",
         "--hostname",
