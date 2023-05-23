@@ -143,6 +143,13 @@ if (useTLS) {
   );
 }
 
+app.get('/.well-known/acme-challenge/:token', (req, res) => {
+  const challengeToken = req.params.token;
+  // Retrieve the challenge token provided by Certbot
+  // Generate the appropriate response with the challenge token
+  res.send(challengeToken);
+});
+
 app.listen(80, () => {
   console.log('Temporary virtual host listening on port 80');
 });
