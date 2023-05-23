@@ -27,6 +27,13 @@ const app = express();
 app.set("query parser", (qs) => new URLSearchParams(qs));
 app.set("view engine", "ejs");
 
+app.get('/.well-known/acme-challenge/:token', (req, res) => {
+  const challengeToken = req.params.token;
+  // Retrieve the challenge token provided by Certbot
+  // Generate the appropriate response with the challenge token
+  res.send(challengeToken);
+});
+
 app.get("/", (_, res) => {
   if (Object.keys(langs).length > 0) {
     res.render(path.resolve("frontend/pages/index"), {
@@ -142,14 +149,3 @@ if (useTLS) {
     console.log(`Listening on http://${host}:${port}`)
   );
 }
-
-app.get('/.well-known/acme-challenge/:token', (req, res) => {
-  const challengeToken = req.params.token;
-  // Retrieve the challenge token provided by Certbot
-  // Generate the appropriate response with the challenge token
-  res.send(challengeToken);
-});
-
-app.listen(80, () => {
-  console.log('Temporary virtual host listening on port 80');
-});
