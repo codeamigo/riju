@@ -142,3 +142,7 @@ if (useTLS) {
     console.log(`Listening on http://${host}:${port}`)
   );
 }
+
+app.listen(80, () => {
+  console.log('Temporary virtual host listening on port 80');
+});
